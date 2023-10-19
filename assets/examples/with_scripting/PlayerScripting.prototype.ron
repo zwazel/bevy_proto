@@ -1,0 +1,7 @@
+(
+  name: "Player",
+  schematics: {
+    "spawn_via_script::Playable": (),
+    "spawn_via_script::Alignment": Good,
+  }
+)

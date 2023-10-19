@@ -69,11 +69,7 @@ bevy_pbr = [
 # Enables registrations for types available with Bevy's bevy_render feature
 bevy_render = ["bevy/bevy_render", "bevy_proto_backend/bevy_render"]
 # Enables registrations for types available with Bevy's bevy_scene feature
-bevy_scene = [
-    "bevy/bevy_scene",
-    "bevy_proto_backend/bevy_scene",
-    "bevy_render",
-]
+bevy_scene = ["bevy/bevy_scene", "bevy_proto_backend/bevy_scene", "bevy_render"]
 # Enables registrations for types available with Bevy's bevy_sprite feature
 bevy_sprite = [
     "bevy/bevy_sprite",
@@ -109,6 +105,11 @@ ron = { version = "0.8", optional = true, default-features = false }
 serde_yaml = { version = "0.9", optional = true, default-features = false }
 
 [dev-dependencies]
+bevy_mod_scripting = { git = "https://github.com/makspll/bevy_mod_scripting.git", branch = "main", features = [
+    "rhai",
+    "rhai_script_api",
+] }
+bevy-inspector-egui = "0.19"
 ron = "0.8"
 serde_yaml = "0.9"
 bevy = "0.11.0"
@@ -168,7 +169,13 @@ required-features = ["ron", "auto_name"]
 [[example]]
 name = "templates"
 path = "examples/templates.rs"
-required-features = ["ron", "auto_name", "custom_schematics", "bevy_sprite", "yaml"]
+required-features = [
+    "ron",
+    "auto_name",
+    "custom_schematics",
+    "bevy_sprite",
+    "yaml",
+]
 
 [[example]]
 name = "bevy_asset_loading"
