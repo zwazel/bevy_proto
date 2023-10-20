@@ -73,6 +73,8 @@ fn spawn(world: &mut ScriptWorld, proto_name: ImmutableString) -> Dynamic {
     let mut proto_commands = system_state.get_mut(&mut world);
     let spawned_mod = proto_commands.spawn(proto_name.as_str()).id();
 
+    system_state.apply(&mut world);
+
     Dynamic::from(spawned_mod)
 }
 
